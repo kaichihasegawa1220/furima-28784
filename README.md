@@ -11,8 +11,6 @@
 | family_name      | string  | null: false |
 | first_name_kana  | string  | null: false |
 | family_name_kana | string  | null: false |
-| birth_year       | date    | null: false |
-| birth_month      | date    | null: false |
 | birth_day        | date    | null: false |
 
 ### Association
@@ -25,12 +23,13 @@
 | Column            | Type        | Options                        |
 | ----------------- | ----------- | ------------------------------ |
 | name              | string      | null: false                    |
+| image             | string      | null: false                    |
 | text              | text        | null: false                    |
-| condition         | string      | null: false                    |
-| price             | string      | null: false                    |
-| payment           | string      | null: false                    |
-| shipping_location | string      | null: false                    |
-| shipping_day      | string      | null: false                    |
+| condition         | integer     | null: false                    |
+| price             | integer     | null: false                    |
+| payment           | integer     | null: false                    |
+| shipping_location | integer     | null: false                    |
+| shipping_day      | integer     | null: false                    |
 | user              | references  | null: false, foreign_key: true |
 
 ### Association
