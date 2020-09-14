@@ -2,48 +2,56 @@
 
 ## users テーブル
 
-| Column   | Type    | Options     |
-| -------- | ------  | ----------- |
-| name     | string  | null: false |
-| email    | string  | null: false |
-| password | string  | null: false |
-| birthday | date    | null: false |
-| user_id  | integer | null: false |
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| nickname         | string  | null: false |
+| email            | string  | null: false |
+| password         | string  | null: false |
+| first_name       | string  | null: false |
+| family_name      | string  | null: false |
+| first_name_kana  | string  | null: false |
+| family_name_kana | string  | null: false |
+| birth_year       | date    | null: false |
+| birth_month      | date    | null: false |
+| birth_day        | date    | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :transaction
+- has_many :item_purchases
 
 ## items テーブル
 
-| Column   | Type        | Options                       |
-| -------- | ----------- | ----------------------------- |
-| name     | string      | null: false                   |
-| price    | string      | null: false                   |
-| user_id  | references  | null: false,foreign_key: true |
+| Column            | Type        | Options                        |
+| ----------------- | ----------- | ------------------------------ |
+| name              | string      | null: false                    |
+| text              | text        | null: false                    |
+| condition         | string      | null: false                    |
+| price             | string      | null: false                    |
+| payment           | string      | null: false                    |
+| shipping_location | string      | null: false                    |
+| shipping_day      | string      | null: false                    |
+| user              | references  | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :transaction
+- has_one :item_purchase
 
-## transaction テーブル
+## item_purchases テーブル
 
-| Column   | Type        | Options                       |
-| -------- | ----------- | ----------------------------- |
-| name     | string      | null: false                   |
-| email    | string      | null: false                   |
-| password | string      | null: false                   |
-| user_id  | references  | null: false,foreign_key: true |
+| Column  | Type       | Options                       |
+| ------- | ---------- | ----------------------------- |
+| user    | references | null: false,foreign_key: true |
+| item    | references | null: false,foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :items
-- has_one :adress
+- belongs_to :item
+- has_one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column      | Type   | Options     |
 | ----------- | -------| ----------- |
@@ -54,5 +62,5 @@
 
 ### Association
 
-- has_one :transaction
+- belongs_to :item_purchase
 
