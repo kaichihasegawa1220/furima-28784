@@ -20,22 +20,26 @@
 
 ## items テーブル
 
-| Column            | Type        | Options                        |
-| ----------------- | ----------- | ------------------------------ |
-| name              | string      | null: false                    |
-| image             | string      | null: false                    |
-| text              | text        | null: false                    |
-| condition         | integer     | null: false                    |
-| price             | integer     | null: false                    |
-| payment           | integer     | null: false                    |
-| shipping_location | integer     | null: false                    |
-| shipping_day      | integer     | null: false                    |
-| user              | references  | null: false, foreign_key: true |
+| Column                             | Type        | Options                        |
+| ---------------------------------- | ----------- | ------------------------------ |
+| name                               | string      | null: false                    |
+| text                               | text        | null: false                    |
+| condition_id (acitve_hash)         | integer     | null: false                    |
+| price_id (acitve_hash)             | integer     | null: false                    |
+| payment_id (acitve_hash)           | integer     | null: false                    |
+| shipping_location_id (acitve_hash) | integer     | null: false                    |
+| shipping_day_id (acitve_hash)      | integer     | null: false                    |
+| user                               | references  | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_one :item_purchase
+- belongs_to :condition
+- belongs_to :price
+- belongs_to :payment
+- belongs_to :shipping_location
+- belongs_to :shipping_day
 
 ## item_purchases テーブル
 
@@ -52,12 +56,17 @@
 
 ## addresses テーブル
 
-| Column      | Type   | Options     |
-| ----------- | -------| ----------- |
-| name        | string | null: false |
-| phonenumber | string | null: false |
-| email       | string | null: false |
-| address     | string | null: false |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| name          | string  | null: false |
+| postal_code   | integer | null: false |
+| prefectures   | string  | null: false |
+| city          | string  | null: false |
+| address       | string  | null: false |
+| building_name | string  | null: false |
+| phonenumber   | string  | null: false |
+| email         | string  | null: false |
+
 
 ### Association
 
