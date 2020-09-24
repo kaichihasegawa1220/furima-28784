@@ -8,9 +8,9 @@
 | email            | string  | null: false |
 | password         | string  | null: false |
 | first_name       | string  | null: false |
-| last_name      | string  | null: false |
+| last_name        | string  | null: false |
 | first_name_kana  | string  | null: false |
-| last_name_kana | string  | null: false |
+| last_name_kana   | string  | null: false |
 | birth_day        | date    | null: false |
 
 ### Association
@@ -23,7 +23,7 @@
 | Column                             | Type        | Options                        |
 | ---------------------------------- | ----------- | ------------------------------ |
 | name                               | string      | null: false                    |
-| category_id (acitve_hash)          | integer     | null: false                    |
+| genre_id (acitve_hash)             | integer     | null: false                    |
 | text                               | text        | null: false                    |
 | condition_id (acitve_hash)         | integer     | null: false                    |
 | price                              | integer     | null: false                    |
@@ -36,7 +36,7 @@
 
 - belongs_to :user
 - has_one :item_purchase
-- belongs_to_active_hash :category
+- belongs_to_active_hash :genre
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :payment
 - belongs_to_active_hash :shipping_location
