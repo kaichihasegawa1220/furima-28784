@@ -34,34 +34,34 @@ RSpec.describe User, type: :model do
           expect(@item.errors.full_messages).to include("Text can't be blank")
         end
 
-        it 'genre_idが0では登録できないこと' do
-          @item.genre_id = 0
+        it 'genre_idが1では登録できないこと' do
+          @item.genre_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Genre must be other than 0")
+          expect(@item.errors.full_messages).to include("Genre must be other than 1")
         end
 
-        it 'condition_idが0では登録できないこと' do
-          @item.condition_id = 0
+        it 'condition_idが1では登録できないこと' do
+          @item.condition_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Condition must be other than 0")
+          expect(@item.errors.full_messages).to include("Condition must be other than 1")
         end
 
-        it 'payment_idが0では登録できないこと' do
-          @item.payment_id = 0
+        it 'payment_idが1では登録できないこと' do
+          @item.payment_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Payment must be other than 0")
+          expect(@item.errors.full_messages).to include("Payment must be other than 1")
         end
 
-        it 'shipping_location_idが0では登録できないこと' do
-          @item.shipping_location_id = 0
+        it 'shipping_location_idが1では登録できないこと' do
+          @item.shipping_location_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping location must be other than 0")
+          expect(@item.errors.full_messages).to include("Shipping location must be other than 1")
         end
 
-        it 'shipping_day_idが0では登録できないこと' do
-          @item.shipping_day_id = 0
+        it 'shipping_day_idが1では登録できないこと' do
+          @item.shipping_day_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping day must be other than 0")
+          expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
         end
 
         it 'priceが空では登録できないこと' do

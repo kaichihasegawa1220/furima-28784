@@ -15,10 +15,10 @@ class Item < ApplicationRecord
   validates_presence_of :price, message: "can't be blank"
 
   validates :image, :name, :text, :genre_id, :condition_id, :payment_id, :shipping_location_id, :shipping_day_id, presence: true
-  validates :genre_id, numericality: { other_than: 0 } 
-  validates :condition_id, numericality: { other_than: 0 } 
-  validates :payment_id, numericality: { other_than: 0 } 
-  validates :shipping_location_id, numericality: { other_than: 0 } 
-  validates :shipping_day_id, numericality: { other_than: 0 } 
+  validates :genre_id, numericality: { other_than: 1 } 
+  validates :condition_id, numericality: { other_than: 1 } 
+  validates :payment_id, numericality: { other_than: 1 } 
+  validates :shipping_location_id, numericality: { other_than: 1 } 
+  validates :shipping_day_id, numericality: { other_than: 1 } 
 
 end
