@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -37,10 +36,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destory
-    @item.destory
-    redirect_to root_path
-  end
+  # def destory
+  #   @item.destory
+  #   redirect_to root_path
+  # end
 
   private
   def item_params
@@ -50,6 +49,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
@@ -58,6 +58,6 @@ class ItemsController < ApplicationController
 
   def seller_redirect
     @item = Item.find(params[:id])
-    redirect_to root_path if current_user.id == @item.user_id
+    redirect_to root_path if current_user.id != @item.user_id
   end
 end
