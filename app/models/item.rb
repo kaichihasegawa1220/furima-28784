@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   validates :genre_id, numericality: { other_than: 1 } 
   validates :condition_id, numericality: { other_than: 1 } 
   validates :payment_id, numericality: { other_than: 1 } 
-  validates :shipping_location_id, numericality: { other_than: 1 } 
+  validates :shipping_location_id, numericality: { other_than: 0 } 
   validates :shipping_day_id, numericality: { other_than: 1 } 
 
 end
