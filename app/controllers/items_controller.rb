@@ -31,15 +31,20 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to root_path
+      
     else
       render :edit
     end
   end
 
-  # def destory
-  #   @item.destory
-  #   redirect_to root_path
-  # end
+  def destroy
+    if @item.destroy
+    redirect_to root_path
+
+    else
+      render :show
+    end
+  end
 
   private
   def item_params
