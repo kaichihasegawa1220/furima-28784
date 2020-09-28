@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
     if @item.valid?
       @item.save
       return redirect_to root_path
@@ -32,6 +31,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to root_path
+      
     else
       render :edit
     end
@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
   def destroy
     if @item.destroy
     redirect_to root_path
+
     else
       render :show
     end
