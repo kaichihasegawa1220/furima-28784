@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UserOrder, type: :model do
   before do
     @user_order = FactoryBot.build(:user_order)
-end
+  end
 
 describe '商品購入情報の保存' do
     context '購入情報が登録できるとき' do
