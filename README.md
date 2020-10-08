@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :item_purchases
+- has_many :purchases
 
 ## items テーブル
 
@@ -35,14 +35,14 @@
 ### Association
 
 - belongs_to :user
-- has_one :item_purchase
+- has_one :purchase
 - belongs_to_active_hash :genre
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :payment
 - belongs_to_active_hash :shipping_location
 - belongs_to_active_hash :shipping_day
 
-## item_purchases テーブル
+## purchases テーブル
 
 | Column  | Type       | Options                       |
 | ------- | ---------- | ----------------------------- |
@@ -57,17 +57,17 @@
 
 ## addresses テーブル
 
-| Column                       | Type    | Options                        |
-| ---------------------------- | ------- | ------------------------------ |
-| postal_code                  | string  | null: false                    |
-| prefectures_id (acitve_hash) | integer | null: false                    |
-| city                         | string  | null: false                    |
-| address                      | string  | null: false                    |
-| building_name                | string  |                                |
-| phonenumber                  | string  | null: false                    |
-| item_purchase_id             | integer | null: false, foreign_key: true |
+| Column                             | Type    | Options                        |
+| ---------------------------------- | ------- | ------------------------------ |
+| postal_code                        | string  | null: false                    |
+| shipping_location_id (acitve_hash) | integer | null: false                    |
+| city                               | string  | null: false                    |
+| address                            | string  | null: false                    |
+| building_name                      | string  |                                |
+| phonenumber                        | string  | null: false                    |
+| item_purchase_id                   | integer | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :item_purchase
-- belongs_to_active_hash :prefecture
+- belongs_to :purchase
+- belongs_to_active_hash :pshipping_location
