@@ -4,6 +4,9 @@ class PurchasesController < ApplicationController
 
   def index
     @purchase = UserOrder.new
+    if current_user.id == @item.user_id || @item.purchase != nil
+    redirect_to root_path 
+    end
   end
 
   def create

@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :destroy]
   before_action :seller_redirect, only: [:edit, :update, :destroy]
-  before_action :move_to_index, except: [:index, :edit]
+  before_action :move_to_index, except: [:index, :show, :edit]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
